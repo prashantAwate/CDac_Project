@@ -1,0 +1,43 @@
+<html>
+<head>
+   
+    <title>End Exam</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+   <script>
+        $(document).ready(function(){  
+            $("#bt").click(function(){
+                // alert("in");
+                var url = "http://localhost:9000/getDataTable"
+                var name = $('#name').val();
+                var bdate = $('#bdate').val();
+                var email = $('#email').val();
+                var qual = $('#qual').val();
+
+                $.post(url, { name1 : name, bdate1 : bdate, email1 : email, qual1 : qual},function(data,status){
+                    if(status=="success")
+                        $("#table").html(data);
+                })
+            })
+        })
+   </script>
+</head>
+<body>
+    <form name="f1">
+        Enter Name :  
+        <input type="text" name="name" id="name">
+        <br>
+        Enter Birth Date :
+        <input type="date" name="bdate" id="bdate" >
+        <br>
+        Enter Email :
+        <input type="email" name="email" id="email" >
+        <br>
+        Enter Qualification:
+        <input type="text" name="qual" id="qual" >
+        <br>
+        <input type="button" value="Submit" id="bt" >
+        <div id="table"></div>
+    </form>
+</body>
+</html>
