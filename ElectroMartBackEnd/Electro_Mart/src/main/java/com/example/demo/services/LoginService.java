@@ -31,4 +31,9 @@ public class LoginService {
 		}
 		return l;
 	}
+	
+	public Login saveLogin(Login l)
+	{
+		return lrepo.save(l);
+	}
 }
