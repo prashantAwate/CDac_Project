@@ -16,11 +16,21 @@ public class CustomerService {
 	@Autowired
 	CustomerRepository crepo;
 	
+	
 	public Customer saveCustomer(Customer c)
 	{
 		return crepo.save(c);
 	}
 	
+	public Customer getCustomer(Login login_id)
+	{
+		return crepo.getCustomerById(login_id);
+	}
+	
+	public List<Customer> getAll()
+	{
+		return crepo.findAll();
+	}
 	
 
 }

@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,5 +25,10 @@ public class LoginController {
 		return lservice.getLogin(lcheck.getUid(), lcheck.getPwd());
 	}
 	
+	@GetMapping("/getWallet")
+	public double getWalletById(int id)
+	{
+		return lservice.getWalletById(id);
+	}
 
 }

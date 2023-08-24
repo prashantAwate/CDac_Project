@@ -14,4 +14,7 @@ public interface LoginRepository extends JpaRepository<Login, Integer> {
 	@Query("select l from Login l where username= :uid and password= :pwd")
 	public Optional<Login> getLogin(String uid,String pwd);
 	
+	@Query("select wallet from Login where id= :id")
+	public double getWalletById(int id);
+	
 }

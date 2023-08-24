@@ -36,4 +36,14 @@ public class LoginService {
 	{
 		return lrepo.save(l);
 	}
+	
+	public Login getLoginById(int login_id)
+	{
+		return lrepo.findById(login_id).get();
+	}
+	
+	public double getWalletById(int id)
+	{
+		return lrepo.getWalletById(id);
+	}
 }
