@@ -1,1 +1,52 @@
+<<<<<<< HEAD
 Project Title:Online second hand vehicle selling portal
+=======
+Business Requiremnt Specification
+Author:Shubham Thombare( Business Analyst)
+Title:EBarber shop.
+Stakeholders:
+	  customers,
+	  barbers,
+	  Administator,
+    Business Owner,
+    Payment gateway provider,
+    Regulatory Authorities,
+    Financial Institutions(Banks,Financial institutions)
+    Marketing and Advertising Team
+	  BOD
+
+The eBarber Shop project aims to create an online platform that connects customers with professional barbers, offering a convenient way to book appointments and receive grooming services. 
+First Draft : 21/06/2023
+Revised Draft: 21/06/2023
+
+1. Introduction:
+The e-Barber Shop project aims to develop an online platform that connects customers with professional barbers, allowing them to book appointments and receive grooming services conveniently. The platform will be accessible through a website and mobile applications for both Android and iOS devices.
+
+2. Purpose:
+The purpose of the e-Barber Shop project is to provide customers with a user-friendly and efficient way to book appointments with barbers, eliminating the need for physical visits or long waiting times at the barbershop. The platform will also enable barbers to manage their schedules effectively and enhance their customer reach.
+
+3. Scope:
+The e-Barber Shop platform will include the following features and functionalities:
+
+3.1 Customer Module:
+- User registration and profile management.
+- Search and browse barbers based on location, services offered, ratings, and availability.
+- View barber profiles, including their portfolio, prices, and customer reviews.
+- Book appointments with preferred barbers.
+- Receive notifications and reminders for upcoming appointments.
+- Rate and provide feedback on barber services.
+- Secure payment processing for services.
+
+3.2 Barber Module:
+- Barber registration and profile management.
+- Manage availability and working hours.
+
+3.3 Administrator Module:
+- Dashboard for managing the platform, users, and services.
+- User management, including registration approval and access control.
+- Barber management, including verification and monitoring.
+- Service management, including adding, editing, and removing services.
+- Generate reports and analytics on user activity, bookings, and revenues.
+- Handle customer support and dispute resolution.
+
+>>>>>>> 2e27de2c1a13f8484fcf5d4b8176d285c23c852e
