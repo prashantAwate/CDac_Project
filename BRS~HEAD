@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+Project Title:Online second hand vehicle selling portal
+=======
 Business Requiremnt Specification
 Author:Shubham Thombare( Business Analyst)
 Title:EBarber shop.
@@ -46,3 +49,4 @@ The e-Barber Shop platform will include the following features and functionaliti
 - Generate reports and analytics on user activity, bookings, and revenues.
 - Handle customer support and dispute resolution.
 
+>>>>>>> 2e27de2c1a13f8484fcf5d4b8176d285c23c852e
