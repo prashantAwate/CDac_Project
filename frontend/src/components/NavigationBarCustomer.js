@@ -24,7 +24,7 @@ export default function NavigationBarCustomer()
                        <Link to="/updatewalletcustomer" className='nav-link px-3 text-light'>Update Wallet</Link>
                    </li>
                    <li className='nav-item'>
-                       <Link to="" className='nav-link px-3 text-light'>View Orders</Link>
+                       <Link to="/viewCustomerOrder" className='nav-link px-3 text-light'>View Orders</Link>
                    </li>
                    <li className='nav-item'>
                        <Link to="/logout" className='nav-link px-3 text-light'>Logout</Link>
