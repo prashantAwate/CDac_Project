@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {useReducer} from "react";
+import { Link } from 'react-router-dom';
 
 export default function AddCategory() {
 
@@ -7,6 +8,8 @@ export default function AddCategory() {
     const init = {
         c_name: " "   
     };
+
+    const [msg, setMsg] = useState("");
 
     const reducer = (state, action) => {
         switch (action.type) {
@@ -42,13 +45,16 @@ export default function AddCategory() {
         })
         .then(resp => resp.JSON)
         .then(obj => console.log(JSON.stringify(obj)))
-        .then((obj)=>{alert("Category Added");
-        window.location.href = "/viewcategories";})
+        .then((obj)=>{setMsg("Category Added");})
+        // window.location.href = "/viewcategories";})
         .catch((error)=> alert("Server Error . Try After Some Time"));   
     }
 
     return (
-        <div className="container-fluid mt-5 col-5 fw-bold border bg-white text-dark">
+        <div style={{ backgroundImage: `url(https://c0.wallpaperflare.com/preview/483/913/258/advanced-ai-anatomy-artificial.jpg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', minHeight: '93vh'  }}>
+
+        <div className="container-fluid mt
+        -5 col-5 fw-bold border bg-white text-dark">
 
             <form action="">
             <div className="mb-3">
@@ -74,7 +80,13 @@ export default function AddCategory() {
                     }>Reset</button>
                 </div>
             </form>
+            <p className="text-success">{msg}</p>
+        <div>
+        <button className='btn btn-primary btn-sm'><h4><Link to="/adminhome" className='nav-link px-3 text-light '>Back</Link></h4></button>
+       </div>
 
+        </div>
         </div>
     )
 }
+

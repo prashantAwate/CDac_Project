@@ -1,117 +1,143 @@
-import React, {useEffect, useState} from 'react';
-import {Form} from 'react-bootstrap';
+
+import React from "react";
+import {useState, useEffect} from 'react';
+import { Link } from "react-router-dom";
 
 export default function ViewVendor() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8080/getallvendor").then(res => res.json()).then(data => setData(data)).catch(error => console.error('Error:', error));
+        fetch("http://localhost:8080/getallvendor")
+        .then(res => res.json())
+        .then(data => setData(data))
+        .catch(error => console.error('Error:', error));
     }, []);
 
-    const onChangeAproveStatus = async (e, v) => {
-        e.preventDefault();
-        const updatedVendors = data.map(vendor => {
-            if (vendor.id === v.id) {
-                return {
-                    ...vendor,
-                    status: !vendor.status
-                };
-            }
-            return vendor;
-        });
+    const approve = (login_id) => {
+        console.log("In approve method")
+        console.log(login_id.id)
+        fetch("http://localhost:8080/approveVendor?login_id=" +login_id.id)
+        .then(resp => resp.json()).then(obj => {
+            console.log("in aprove   "+JSON.stringify(obj))
+            if (obj) {
+                //alert("Updation done")
+                // nav("/admin_home/approveTour")
+                 //window.location.reload();
+            } else 
+                alert("Updation failed")
 
-        try {
-            await Promise.all(updatedVendors.map(async vendor => {
-                const response = await fetch(process.env.REACT_APP_BASE_URL + '/vendor/approve/' + vendor.id + "/" + !vendor.status, {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-                const responseData = await response.json();
-                return {
-                    ...vendor,
-                    status: !vendor.status
-                };
-            }));
-            setData(updatedVendors);
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
+            
 
+        })
+    }
+
+    const reject = (login_id) => {
+        console.log("In approve method")
+        console.log(login_id.id)
+        fetch("http://localhost:8080/rejectVendor?login_id=" + login_id.id)
+        .then(resp => resp.json()).then(obj => {
+            console.log("in aprove   "+JSON.stringify(obj))
+            if (obj) {
+                //alert("Updation done")
+                // nav("/admin_home/approveTour")
+                 //window.location.reload();
+            } else 
+                alert("Updation failed")
+
+            
+
+        })
+    }
     return (
-        <div className="container-fluid mt-5 col-8 border bg-white ">
-            <h2 className="text-center">
-                <b>Vendor Details</b>
-            </h2>
+        <div style={{ backgroundImage: `url(https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&w=600)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', minHeight: '93vh'  }}>
 
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th className="text-center">Vendor Id</th>
-                        <th className="text-center">First Name</th>
-                        <th className="text-center">Last Name</th>
-                        <th className="text-center">Email</th>
-                        <th className="text-center">Contact</th>
-                        <th className="text-center">Address</th>
-                        <th className="text-center">Shop_name</th>
-                        <th className="text-center">Vendor Approve</th>
-                    </tr>
-                </thead>
-                <tbody> {
-                    data.map(v => (
-                        <tr key={
-                            v.login_id
-                        }>
-                            <td className="text-center">
-                                {
-                                v.id
-                            }</td>
-                            <td className="text-center">
-                                {
-                                v.login_id.fname
-                            }</td>
-                            <td className="text-center">
-                                {
-                                v.login_id.lname
-                            }</td>
-                            <td className="text-center">
-                                {
-                                v.login_id.email
-                            }</td>
-                            <td className="text-center">
-                                {
-                                v.login_id.contact
-                            }</td>
-                            <td className="text-center">
-                                {
-                                v.login_id.address
-                            }</td>
-                            <td className="text-center">
-                                {
-                                v.shop_name
-                            }</td>
-                            
-                            <td className="text-center">
-                                <Form.Check type="switch"
-                                    id={
-                                        `custom-switch-${
-                                            v.id
-                                        }`
-                                    }
-                                    checked={
-                                        (v.login_id.status === "true" || v.login_id.status === true)
-                                    }
-                                    onChange={
-                                        (e) => onChangeAproveStatus(e, v)
-                                    }
-                                    className="mt-2"/>
-                            </td>
+            <div className="container-fluid mt-100 col-8 border bg-white ">
+                <h2 className="text-center">
+                    <b>Vendor Details</b>
+                </h2>
+                <div className="table-responsive">
+                <table className="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th className="text-center">Vendor Id</th>
+                            {/* <th className="text-center">Uid</th> */}
+                            <th className="text-center">Name</th>
+                            <th className="text-center">Email</th>
+                            <th className="text-center">Contact</th>
+                            <th className="text-center">Address</th>
+                            <th className="text-center">Shop_Licence_Id</th>
+                            <th className="text-center">Status</th>
+                            <th className="text-center">
+                                Approve</th>
+                            <th className="text-center">Reject</th>
+
                         </tr>
-                    ))
-                } </tbody>
-            </table>
+                    </thead>
+                    <tbody> {
+                        data.map(v => (
+                            <tr key={
+                                v.id
+                            }>
+                                <td className="text-center">
+                                    {
+                                    v.id
+                                }</td>
+                                 {/* <td className="text-center">
+                                    {
+                                    v.login_id.username
+                                }</td> */}
+                                <td className="text-center">
+                                    {
+                                    v.login_id.fname
+                                }</td>
+                                <td className="text-center">
+                                    {
+                                    v.login_id.email
+                                }</td>
+                                <td className="text-center">
+                                    {
+                                    v.login_id.contact_no
+                                }</td>
+                                <td className="text-center">
+                                    {
+                                    v.login_id.address
+                                }</td>
+                                <td className="text-center">
+                                    {
+                                    v.shopact_licencence
+                                }</td>
+                                <td className="text-center">
+                                    {
+                                     v.login_id.status === true ? "Approved" : "Rejected"
+                                }</td>
+                                <td>
+                                    <button className='btn btn-success mx-2'
+                                        onClick={
+                                            () => {
+                                                approve(v.login_id)
+                                            }
+                                    }>Approve</button>
+                                </td>
+                                <td>
+                                    <button className='btn btn-secondary'
+                                        onClick={
+                                            () => { reject(v.login_id)}
+                                    }>Reject</button>
+                                </td>
+
+                            </tr>
+                        ))
+                    } </tbody>
+                </table>
+                </div>
+            </div>
+
+            <div>
+        <button className='btn btn-primary btn-sm'><h4><Link to="/adminhome" className='nav-link px-3 text-light '>Back</Link></h4></button>
+       </div>
         </div>
+
     );
 }
+
+

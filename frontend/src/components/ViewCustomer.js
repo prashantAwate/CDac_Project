@@ -1,13 +1,14 @@
 import React from 'react'
-import {useEffect, useState} from "react";
+import {useEffect, useState} from "react"; 
+import { Link } from 'react-router-dom';
 
-export default function ViewVendor() {
+export default function ViewCustomer() {
 
     const [data, setData] = useState([]);
 
     useEffect(() => {
 
-        fetch("http://localhost:8080/getallcustomers").then(res => res.json()).then(data => setData(data))
+        fetch("https://localhost:7074/api/Logins/role3").then(res => res.json()).then(data => setData(data))
     }, []);
 
  
@@ -19,7 +20,7 @@ export default function ViewVendor() {
 
             <table className="table table-striped">
                 <tr>
-                    <th className="text-center">Customer Id</th>
+                    <th className="text-center">Login Id</th>
                     <th className="text-center">First Name</th>
                     <th className="text-center">Last Name</th>
                     <th className="text-center">Email</th>
@@ -38,30 +39,32 @@ export default function ViewVendor() {
                                 }</td>
                                 <td className="text-center">
                                     {
-                                    v.login_id.fname
+                                    v.fname
                                 }</td>
                                 <td className="text-center">
                                     {
-                                    v.login_id.lname
+                                    v.lname
                                 }</td>
                                 <td className="text-center">
                                     {
-                                    v.login_id.email
+                                    v.email
                                 }</td>
                                 <td className="text-center">
                                     {
-                                    v.login_id.contact_no
+                                    v.contactNo
                                 }</td>
                                 <td className="text-center">
                                     {
-                                    v.login_id.address
+                                    v.address
                                 }</td>             
                             </tr>
                         )
                 })
             } </table>
 
-
+        <div>
+        <button className='btn btn-primary btn-sm'><h4><Link to="/adminhome" className='nav-link px-3 text-light '>Back</Link></h4></button>
+       </div>
         </div>
     )
 }

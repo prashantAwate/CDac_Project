@@ -15,7 +15,7 @@ export default function FooterComp()
                         style={{backgroundColor:"rgb(72, 129, 153)"}}>
 
                         <div class="me-5">
-                        <h6 class="text-uppercase fw-bold">Get Connected With Us On Social Media</h6>
+                        <h6 class="text-uppercase fw-bold">Connect With Us</h6>
                         </div>
 
                         <div>
@@ -80,7 +80,7 @@ export default function FooterComp()
                                         style={{ width: "60px", backgroundColor: "#7c4dff", height: "2px" }}
                                     />
                                     
-                                    <p><i class="fas fa-envelope mr-3"></i>electromart0417@gmail.com</p>
+                                    <p><i class="fas fa-envelope mr-3"></i><a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new">electromart220823@gmail.com</a></p>
                                     <p><i class="fas fa-phone mr-3"></i></p>
                                     <p><i class="fas fa-phone mr-3"></i>Prashant Awate</p>
                                     <p><i class="fas fa-phone mr-3"></i>Shubham Thombare</p>
@@ -113,4 +113,3 @@ export default function FooterComp()
         
     )
     }
-

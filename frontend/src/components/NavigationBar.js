@@ -11,14 +11,14 @@ export default function NavigationBar() {
         <div>
            <div style={{display: mystate.loggedIn ? "none" : "block" }} >
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <Link to="/" className='nav-link px-3'>
+            <Link to="/home" className='nav-link px-3'>
                             <b className='text-light'>Electro-Mart </b>
                         </Link>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                        
                         <li className="nav-item ">
-                            <Link to="/" className='nav-link px-3 text-light'>Home</Link>
+                            <Link to="/home" className='nav-link px-3 text-light'>Home</Link>
                         </li>
             
                         <li className='nav-item'>
